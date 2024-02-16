@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banana Bread</title>
+</head>
+<body>
+    <img src="images/bananabread.jpg">
+    <h1>Banana Bread</h1>
+
+    <h2>Why you'll love this recipe</h2>
+ <p>With overripe bananas, applesauce, and vanilla extract, this classic banana bread is soft, flavorful, and incredibly moist. I tested this recipe a dozen times to make the best banana bread with amazing banana flavor and only a little fat. Whether you’re a seasoned baker or a newbie, this is perfect for any occasion, such as breakfast, back-to-school snacks, or even as a sweet gift. </p>
+
+    <h2>Ingredients</h2>
+    <ul>
+    <li>Bananas: Mash three large, ripe bananas for 1 1/3 cups (11 ounces) of mashed bananas. </li>
+    <li>Flour: You’ll need 1 ½ cups of all-purpose flour.</li>
+    <li>Baking Powder and Baking Soda cause the bread to rise and makes it more tender.</li>
+    <li>Salt improves the flavor and texture and balances the sweetness.</li>
+    <li>Coconut Oil: Just two tablespoons of coconut oil adds some moisture while keeping the bread light.</li>
+    <li>Brown Sugar: I used Lakanto monkfruit for a healthier option, but light brown sugar will also work.</li>
+    <li>Egg: You’ll need one large egg.</li>
+    <li> Applesauce: Unsweetened applesauce replaces the oil.</li>
+    <li> Vanilla Extract for flavor</li>
+    
+    </ul>
+
+    <h2>Instructions</h2>
+    <ul>
+        <li>Preheat the oven to 350°F, and grease an 8×5-inch loaf pan with baking spray.</li>
+        <li>Dry Ingredients: Whisk the flour, baking powder, salt, and baking soda.</li>
+        <li>Wet Ingredients: Cream the coconut oil, applesauce, and sugar with a stand or hand mixer. Add the egg and vanilla and beat at medium speed until thick. Scrape down the sides of the bowl.</li>
+        <li>Combine: Add half of the dry ingredients and blend on low speed until combined. Pour in the remaining flour mixture and the mashed bananas and blend on low, ensuring you don’t overmix.</li>
+        <li>Pour the batter into the loaf pan and bake on the center rack for 45 to 50 minutes or until a toothpick comes out clean but moist.</li>
+        <li>Brown Sugar: I used Lakanto monkfruit for a healthier option, but light brown sugar will also work.</li>
+        <li>Let the pan cool for at least 10 minutes, then turn it over to remove the loaf from the pan. The bread should be at room temperature before slicing to ensure it doesn’t fall apart. </li>
+       
+    </ul>
+
+    <h2>Variations</h2>
+
+    <ul>
+        <li>Whole wheat: Swap out half the all purpose flour for whole wheat. </li>
+        <li>Chocolate chip bread: Add ¾ cups of regular or mini chocolate chips.</li>
+        <li>Spices: Add cinnamon, nutmeg, or pumpkin pie spice. </li>
+        <li>Peanut butter: Swirl in some peanut butter to the batter before baking. </li>
+        <li>Double the recipe to gift one to a friend or freeze for later.</li>
+        <li>Banana Muffins: Pour the batter into a muffin tin and bake for 20 to 25 minutes, checking with a toothpick to confirm they’re ready. </li>
+        
+    </ul>
+    
+    <h2> Tips </h2>
+    <h3> How to ripen bananas quicker </h3>
+    <p>Place bananas in a paper bag and leave them in a warm area for quicker ripening. When the peels get spotted and blacken slightly, and become soft they will be ready.</p>
+    <h3> How to store banana bread </h3>
+    <p>Once the bread cools, store it in an airtight container for one day on the counter and then in the fridge for up to a week. </p>
+
+  <p> <a to view the orignal recipe visit a href= "https://www.skinnytaste.com/banana-bread/#recipe">cookingclassy.com </a> </p>
+</body>
+    
+
+</html>
