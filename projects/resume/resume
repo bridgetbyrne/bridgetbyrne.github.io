@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jane Doe - Resume</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anta&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <section id = 'background'>
+    <h1>Jane Doe</h1>
+    <a href="tel:1-410-888-8989">410-888-8989</a> /
+    <a href="mailto:janedoe@janedoe.com">janedoe@janedoe.com</a>
+    <!---->
+    <p>Passionate and driven journalist with experience in breaking news, education reporting, and
+        editorial leadership. Seeking opportunities to leverage skills in investigative journalism and storytelling
+        to contribute to a dynamic newsroom environment.</p>
+    <!---->
+    </section>
+
+    <section id = 'professional_experience'>
+    <h2>Professional Experience</h2>
+    <h3><a target="_blank" href="https://www.seattletimes.com/">The Seattle Times</a></h3>
+    <h4 class = 'beep_boop'>Breaking News Reporter</h4>
+    <i>February 2024 - Present</i>
+    <ul>
+        <li>Proactively cover breaking news stories in the Seattle area, delivering timely and accurate
+            reports for print and digital platforms.</li>
+        <li> Conduct interviews, gather information from multiple sources, and produce engaging multimedia
+            content to keep audiences informed.</li>
+    </ul>
+    <!---->
+    <h3><a target="_blank" href="https://www.baltimoresun.com/">The Baltimore Sun</a> </h3>
+    <h4 class = 'beep_boop'>Higher Education Reporter</h4>
+    <i>October 2023 - February 2024</i>
+    <ul>
+        <li>Investigated and reported on issues related to higher education, including student life,
+            academic policies, and campus events.</li>
+        <li> Cultivated relationships with university officials, faculty, and students to provide
+            comprehensive coverage of university affairs.</li>
+    </ul>
+    <!---->
+    <h3><a target="_blank" href="https://capitalgazette.com">The Capital Gazette</a> </h3>
+    <h4 class = 'beep_boop'>News Intern - Breaking News </h4>
+    <i>June 2023 - October 2023</i>
+    <ul>
+        <li>Assisted in coverage of breaking news events, conducting research, interviews, and fact-checking
+            to support reporters.</li>
+        <li> Contributed to the production of breaking news stories for digital publication, adhering to
+            tight deadlines and journalistic standards.</li>
+    </ul>
+    <!---->
+    <h3><a target="_blank" href="https://thetowerlight.com/">The Towerlight</a> </h3>
+    <h4 class = 'beep_boop'>Editor in Chief</h4>
+    <i>April
+        2022 - May 2023</i>
+    <ul>
+        <li>Led a team of student journalists in planning, editing, and publishing a bi-weekly campus
+            newspaper. </li>
+        <li> Managed editorial workflow, assigned stories, and provided guidance to staff writers to ensure
+            high-quality content production.</li>
+    </ul>
+    <!---->
+    <h3><a target="_blank" href="https://www.baltimoresun.com/">The Baltimore Sun</a> </h3>
+    <h4 class = 'beep_boop'>News Intern - Breaking News</h4>
+    <i>May 2022 - August 2022</i>
+    <ul>
+        <li> Assisted reporters in covering breaking news events in the Baltimore area, including crime,
+            politics, and community issues.</li>
+        <li> Conducted research, interviewed sources, and contributed to the writing and editing of news
+            articles for print and online publication.</li>
+    </ul>
+    <!---->
+    <h3><a target="_blank" href="https://richmond.com/">Richmond Times-Dispatch </a> </h3>
+    <h4 class = 'beep_boop'>News Intern - Breaking News & Enterprise Coverage</h4>
+    <i>June 2021 - August 2021</i>
+    <ul>
+        <li>Participated in reporting on breaking news events and long-form enterprise stories, researching
+            topics and interviewing sources.</li>
+        <li> Assisted in the production of multimedia content, including videos, photo galleries, and
+            interactive graphics.</li>
+    </ul>
+    </section>
+    <!---->
+    <section id = 'education'>
+    <h2>Education</h2>
+    <h3>Towson University</h3>
+    <h4>Bachelor of Science in Mass Communication/Media Studies</h4>
+    </section>
+</body>
+
+</html>
