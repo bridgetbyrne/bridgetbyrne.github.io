@@ -1,0 +1,51 @@
+body {
+    background-color: #D27070;
+    
+}
+
+
+h1{
+    font-size: 50px;
+    font-family: "Montserrat", sans-serif;
+    margin:10px
+}
+
+h2{
+    font-size: 30px;
+    font-family: "Montserrat", sans-serif;
+    margin:10px
+}
+
+h3{
+    font-size: 15px;
+    font-family: "Montserrat", sans-serif;
+    margin:10px
+}
+
+#basic_facts{
+    background-color: #d4c4c4;
+    font-family: "Montserrat", sans-serif;
+    padding: 5px;
+}
+
+.graph{
+    text-align: center;
+    color: #000000;
+    
+}
+
+.table {
+    text-align: center;
+
+}
+.mydiv {
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    justify-content: center; /* Horizontal centering */
+    align-items: center; /* Vertical centering */
+    min-height: 100vh; /* Adjusted to viewport height for demonstration */
+}
+
+.center-text {
+    text-align: center;
+  }

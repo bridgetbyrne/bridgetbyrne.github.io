@@ -1,0 +1,51 @@
+body {
+    background-color:  #ffe6cc;
+    
+    
+}
+
+
+h1{
+    font-size: 60px;
+    font-family: "Times New Roman", Times, serif;
+}
+
+h2{
+    font-size: 25px;
+    font-family: "Times New Roman", Times, serif;
+}
+
+h3{
+    font-size: 30px;
+    font-family: "Times New Roman", Times, serif;
+    margin:10px
+}
+
+#hours{
+    font-size: 20px;
+    color:  #141211;
+    background-color: #ccbaa7;
+    font-family: "Times New Roman", Times, serif;
+    margin: 70px;
+
+}
+
+
+#bio {
+    font-size: 15px;
+    color:  #fff3e6;
+    background-color: #7B3F00;
+    font-family: "Times New Roman", Times, serif;
+    padding: 20px;
+}
+
+
+
+#footer {
+    padding:20px;
+}
+
+.graph{
+    color: #7B3F00
+    
+}
