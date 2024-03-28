@@ -1,0 +1,162 @@
+
+h1 {
+
+    font-size: 50px;
+    font-family: "Neuton", serif;
+    color: #3E4551;
+}
+
+h2 {
+
+    font-size: 30px;
+    font-family: "Yrsa", serif;
+    color: #3E4551;
+
+}
+
+
+h3 {
+
+    font-size: 20px;
+    font-family: "Yrsa", serif;
+
+}
+
+
+h4{
+
+    font-family: "Yrsa", serif;
+    font-size: 15px;
+
+}
+
+
+ul {
+    
+    font-size: 15px;
+    color: #3E4551;
+    font-family: "Lato", sans-serif;
+
+}
+
+
+body {
+
+    font-size: 50px;
+    background-color: #BCB88A;
+    color: #3E4551;
+
+}
+
+.headshot{
+
+    width: 248px;
+    height: 300px;
+    padding: 20px;
+    background: #5B4935;
+    margin-right: 20px;
+
+}
+
+.nav{
+    text-align: center;
+    font-size: 30px;
+    font-family: "Times New Roman", Times, serif;
+    color: #3E4551;
+
+}
+
+#carousel{
+
+    color:  #fff3e6;
+    font-family: "Times New Roman", Times, serif;
+    padding: 20px;
+
+}
+
+
+.slide{
+    width: 600px;  
+    height: 400px; 
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.photo{
+
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: "Times New Roman", Times, serif;
+    color: #3E4551;
+    font-size: 25px;
+}
+
+.clips {
+    padding-right: 100px;
+    padding-left: 100px;
+    color: #3E4551;
+    font-size: 15px;
+    font-family: "Lato", sans-serif;
+
+
+  }
+
+.resume {
+
+    padding-right: 100px;
+    padding-left: 100px;
+    color: #3E4551;
+
+  }
+
+.bio{
+    font-size: 20px;
+    color: #3E4551;
+    font-family: "Lato", sans-serif;
+    padding-right: 40px;
+    height: 175px;
+
+}
+
+.name {
+
+    padding-right: 80px;
+    padding-left: 80px;
+    color: #3E4551;
+
+}
+
+.home{
+
+  display: grid; 
+  grid-template-columns: auto 1fr; 
+  align-items: center; 
+  gap: 20px; 
+
+}
+
+.contact{
+
+    align-items: center;
+    height: 50px;
+    margin: 50px;
+    font-weight: 600;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 20px;
+    padding-left: 40px;
+    color: #8D8D8D;
+    background: #5B4935;
+    padding-right: 50px;
+    padding-left: 50px;
+    line-height: .50;
+
+    display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 200px; 
+      border: 1px solid #000; 
+}
