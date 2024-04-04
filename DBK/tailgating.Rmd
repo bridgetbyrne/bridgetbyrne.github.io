@@ -1,0 +1,49 @@
+---
+title: "Tailgating"
+output: html_notebook
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
+
+```{r}
+#load libraries 
+library(tidyverse)
+library(dplyr)
+
+```
+
+```{r}
+#load data, each CSV doc is data for one game 
+
+towson <- read.csv("towson.csv")
+charlotte <- read.csv("charlotte.csv")
+illinois <- read.csv("illinois.csv")
+indiana <- read.csv("indiana.csv")
+michigan <- read.csv("michigan.csv")
+pennstate <- read.csv("pennstate.csv")
+virginia <- read.csv("virginia.csv")
+
+
+#creating a data set with all seven games 
+allgames <- rbind(towson, charlotte, illinois, indiana, michigan, pennstate, virginia)
+
+
+```
+
+
+```{r}
+#how much money did UMD make off all games? 
+
+
+#which game made the most money? 
+
+
+
+
+#which lot made the most money? 
+
+
+```
+
