@@ -1,0 +1,128 @@
+
+
+h1{
+    font-family: "Workbench", sans-serif;
+    font-size:  4.5em;
+    text-align: center;
+    color:#EE964B;
+
+}
+
+h2{
+
+    font-family: "Anta", sans-serif;
+    font-size:  2em;
+    font-weight: 600;
+    text-align: center;
+    color:#EE964B;
+
+
+}
+
+h3{
+    font-family: "Anta", sans-serif;
+    font-size:  1.5em;
+    font-weight: 600;
+    color:blanchedalmond
+
+}
+
+
+p{
+
+    overflow-wrap: break-word;
+    font-weight: 400;
+
+}
+
+
+body{
+
+    color:#585123;
+    background-color:#C6D4FF;
+    font-family: "Montserrat", sans-serif;
+    font-size: 15px;
+    flex: 1;
+    max-width: 100%
+
+}
+
+
+#header{
+
+    text-align: center;
+
+}
+
+
+.container {
+
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 10px; 
+
+}
+
+
+.models, .NA {
+
+    flex: 1; 
+    max-width: calc(50% - 10px); 
+
+}
+
+
+.models img, .NA img {
+
+    width: 100%;  
+    height: auto;  
+    display: block;  
+    margin-top: 10px;  
+
+
+}
+
+#disclaimer:hover {
+
+    font-size: 15px;  
+    color: #C6D4FF; 
+
+}
+
+#disclaimer {
+
+    font-size: 20px;  
+    color: red; 
+    text-align: center;
+
+
+}
+
+
+.table-container {
+
+    display: flex;
+    justify-content: center; 
+    align-items: center;  
+
+}
+
+.changeTable {
+
+    font-size:150%;
+    background-color: #0040ff; 
+    color: red;
+    font-weight: 900;
+
+
+}
+
+.changeTable2 {
+
+    font-size:150%;
+    background-color: #FFEA00; 
+    color: red;
+    font-weight: 900;
+
+
+}

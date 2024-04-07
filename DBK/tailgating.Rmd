@@ -17,32 +17,47 @@ library(dplyr)
 ```{r}
 #load data, each CSV doc is data for one game 
 
-towson <- read.csv("towson.csv")
-charlotte <- read.csv("charlotte.csv")
-illinois <- read.csv("illinois.csv")
-indiana <- read.csv("indiana.csv")
-michigan <- read.csv("michigan.csv")
-pennstate <- read.csv("pennstate.csv")
-virginia <- read.csv("virginia.csv")
+towson <- read_csv("towson.csv")
+charlotte <- read_csv("charlotte.csv")
+illinois <- read_csv("illinois.csv")
+indiana <- read_csv("indiana.csv")
+michigan <- read_csv("michigan.csv")
+pennstate <- read_csv("pennstate.csv")
+virginia <- read_csv("virginia.csv")
 
 
 #creating a data set with all seven games 
 allgames <- rbind(towson, charlotte, illinois, indiana, michigan, pennstate, virginia)
 
-
+print(allgames)
 ```
 
 
 ```{r}
 #how much money did UMD make off all games? 
 
+sum(allgames$Rate)
 
-#which game made the most money? 
+allgames |>
+  group_by(Lot.Name)
 
 
 
+#How much money did UMD make off each game?
 
-#which lot made the most money? 
+gameprofits <- allgames |>
+  group_by(Event)|>
+  summarize(
+    Sales_Count = n(),
+    Total_Profit = sum(Rate)
+  )
+
+print(gameprofits)
+
+
+#what is the most profitable lot? 
+
+#how much does the school make off moving violations? 
 
 
 ```
