@@ -1,0 +1,41 @@
+
+body {
+  width: 100%; 
+  flex-wrap: wrap; 
+  background-color:black;
+  font-family: "Yrsa", serif;
+  color:white;
+  display: flex; 
+
+}
+
+input {
+  font-family: "Yrsa", serif;
+  width: 85px;
+  height: 85px;
+  font-size:40px;
+  color:black;
+}
+
+
+.headline{
+    margin-left:50px;
+    font-size: 28px;
+
+}
+
+  .instructions {
+    font-family: "Yrsa", serif;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 350px;
+    margin-left:25px;
+    gap: 5px;
+    font-size: 20px;
+    color: white;
+  }
+  
+  
+ 
+ 
