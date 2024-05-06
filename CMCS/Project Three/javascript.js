@@ -18,7 +18,7 @@ function undoMove() {
   alert("board cleared");
 }
 
-// player's move 
+// player move 
   function storeValues() {
     userMove = null;
 
@@ -87,23 +87,17 @@ function checkWin() {
   }
 }
 
-// computer's first move
+// computer move
 function mover(i) {
   document.getElementById("s" + (i + 1)).value = csymbol;
   board[i] = csymbol;
   cMove = i;
 }
 
-/*
-we want to implement a new algorithm for the computer to move. The algorithm works like this:
+/* computer decision making 
 1. it iterates through every open space on the board and pretends to move there. 
 2. it adds up the number of firendly symbols and foe symbols in each column and assigns a score based on their values.
-3. it picks the board with the highest overall 'score' and picks the move associated with it. Obviously winning moves and blocking
-moves are given vey high 'scores'
-
-
-The algorithm is not perfect because it is based on the sum of the friendly points and foe points. 
-Also the diagonals don;t work quite right.
+3. it picks the board with the highest overall 'score' and picks the move associated with it. 
 */
 
 function computermove(){
