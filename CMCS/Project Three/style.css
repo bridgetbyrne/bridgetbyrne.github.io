@@ -1,21 +1,21 @@
 
 body {
-  width: 100%; 
-  flex-wrap: wrap; 
-  background-color:black;
-  font-family: "Yrsa", serif;
-  color:white;
-  display: flex; 
+    width: 100%; 
+    flex-wrap: wrap; 
+    background-color:black;
+    font-family: "Yrsa", serif;
+    color:white;
+    display: flex; 
 
 }
 
 input {
-  font-family: "Yrsa", serif;
-  width: 85px;
-  height: 85px;
-  font-size:40px;
-  color:black;
-}
+    font-family: "Yrsa", serif;
+    width: 85px;
+    height: 85px;
+    font-size:40px;
+    color:black;
+  }
 
 
 .headline{
@@ -24,7 +24,7 @@ input {
 
 }
 
-  .instructions {
+.instructions {
     font-family: "Yrsa", serif;
     display: flex;
     flex-direction: row;

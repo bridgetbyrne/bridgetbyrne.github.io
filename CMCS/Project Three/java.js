@@ -34,9 +34,8 @@ function undoMove() {
       board[i] = document.getElementById('s' + (i + 1)).value;
     }
 
-
     checkWin();
-    win();
+    computermove();
   }
 
 
@@ -95,321 +94,116 @@ function mover(i) {
   cMove = i;
 }
 
-// computer looking to win
-function win() {
-  if (winner !== '') {
-    return;
-  }
-  else if ((board[0] == board[1]) && (board[2] == '') && (board[0] == csymbol)) {
-    mover(2);
-    checkWin();
-    return;
-  }
-  else if ((board[0] == board[2]) && (board[1] == '') && (board[0] == csymbol)) {
-    mover(1);
-    checkWin();
-    return;
-  }
-  else if ((board[0] == board[3]) && (board[6] == '') && (board[0] == csymbol)) {
-    mover(6);
-    checkWin();
-    return;
-  }
-  else if ((board[0] == board[6]) && (board[3] == '') && (board[0] == csymbol)) {
-    mover(3);
-    checkWin();
-    return;
-  }
-  else if ((board[8] == board[7]) && (board[6] == '') && (board[8] == csymbol)) {
-    mover(6);
-    checkWin();
-    return;
-  }
-  else if ((board[8] == board[6]) && (board[7] == '') && (board[8] == csymbol)) {
-    mover(7);
-    checkWin();
-    return;
-  }
-  else if ((board[8] == board[5]) && (board[2] == '') && (board[8] == csymbol)) {
-    mover(2);
-    checkWin();
-    return;
-  }
-  else if ((board[8] == board[2]) && (board[5] == '') && (board[8] == csymbol)) {
-    mover(5);
-    checkWin();
-    return;
-  }
+/*
+we want to implement a new algorithm for the computer to move. The algorithm works like this:
+1. it iterates through every open space on the board and pretends to move there. 
+2. it adds up the number of firendly symbols and foe symbols in each column and assigns a score based on their values.
+3. it picks the board with the highest overall 'score' and picks the move associated with it. Obviously winning moves and blocking
+moves are given vey high 'scores'
 
-  for (var i = 1; i < 8; i++) {
-    if ((board[i] == board[i - 1]) && (board[i + 1] == '') && (board[i] == csymbol) && (i == 1 || i == 4 || i == 7)) {
-      mover(i + 1);
-      checkWin();
-      return;
-    }
-    else if ((board[i] == board[i + 1]) && (board[i - 1] == '') && (board[i] == csymbol) && (i == 1 || i == 4 || i == 7)) {
-      mover(i - 1);
-      setTimeout(checkWin(), 1000);
-      return;
-    }
-    else if ((board[i] == board[i + 3]) && (board[i + 6] == '') && (board[i] == csymbol) && (i == 1 || i == 2)) {
-      mover(i + 6);
-      checkWin();
-      return;
-    }
-    else if ((board[i] == board[i + 6]) && (board[i + 3] == '') && (board[i] == csymbol) && (i == 1 || i == 2)) {
-      mover(i + 3);
-      checkWin();
-      return;
-    }
-    else if ((board[i] == board[0]) && (board[8] == '') && (board[i] == csymbol) && (i = 4)) {
-      mover(i + 4);
-      checkWin();
-      return;
-    }
-    else if ((board[i] == board[8]) && (board[0] == '') && (board[i] == csymbol) && (i = 4)) {
-      mover(i - 4);
-      checkWin();
-      return;
-    }
-    else if ((board[i] == board[i - 2]) && (board[i + 2] == '') && (board[i] == csymbol) && (i = 4)) {
-      mover(i + 2);
-      checkWin();
-      return;
-    }
-    else if ((board[i] == board[i + 2]) && (board[i - 2] == '') && (board[i] == csymbol) && (i = 4)) {
-      mover(i - 2);
-      checkWin();
-      return;
+
+The algorithm is not perfect because it is based on the sum of the friendly points and foe points. 
+Also the diagonals don;t work quite right.
+*/
+
+function computermove(){
+  let scores = [];
+  let maxscore = -1;
+  let minscore = 0;
+  var bestMove;
+
+  for (var i = 0; i <board.length; i++){
+    if (board[i] === ''){
+      board[i] = csymbol;
+
+      let score = getPoints();
+
+      board[i] = '';
+
+      if (score > maxscore) {
+        maxscore = score;
+        bestMove = i;
+      }
     }
   }
-  compMove();
+  mover(bestMove)
 }
 
-// blocking player from winning
-function attack() {
-  for (var i = 1; i < 8; i++) {
-    if (board[i] == cMove) {
-      if ((board[i] == board[i - 1]) && (board[i + 1] == '') && (i == 1 || i == 4 || i == 7)) {
-        mover(i + 1);
-      }
-      else if ((board[i] == board[i + 1]) && (board[i - 1] == '') && (i == 1 || i == 4 || i == 7)) {
-        mover(i - 1);
-      }
-      else if ((board[i] == board[i + 2]) && (board[i + 4] == '') && (i == 2)) {
-        mover(i + 4);
-      }
-      else if ((board[i + 1] == '') && (board[i - 1] == '') && (i == 1 || i == 4 || i == 7)) {
-        mover(i + 1);
-      }
-      else if ((board[i - 1] == '') && (board[i + 1] == '') && (i == 1 || i == 4 || i == 7)) {
-        mover(i + 1);
+function getPoints(){
+  let score = 0;
+  //iterate through the columns
+  for (var x = 0; x<3; x++){
+    let colscorefriend = 0;
+    let colscorefoe = 0;
+    for (var i = 0; i<6; i+=3){
+      if (board[i+x] == csymbol){
+        colscorefriend++;
+      }else if (board[i+x] == token){
+        colscorefoe++;
       }
     }
-  }
-  if (cMove == 0) {
-    if (board[0] == board[4] && board[8] == '') {
-      mover(8);
+      if (colscorefriend + colscorefoe == 0){
+        score +=0;
+      }else if (colscorefriend + colscorefoe == 1){
+        score += 2;
+      }else if (colscorefriend + colscorefoe == 2){
+        score +=5;
+      }else if ((colscorefriend + colscorefoe == 3) && (colscorefriend == 3 || colscorefoe == 2)){
+        score += 100;
+      }else{
+        score+=1
+      }
     }
-    else if (board[0] == board[8] && board[4] == '') {
-      mover(4);
+  //iterate through the rows
+
+  for (var x = 0; x<6; x+=3){
+    let rowscorefriend = 0;
+    let rowscorefoe = 0;
+    for (var i = 0; i<3; i++){
+      if (board[i+x] == csymbol){
+        rowscorefriend++;
+      }else if(board[i+x] == token){
+        rowscorefoe++;
+      }
     }
-    else if (board[0] == board[1] && board[2] == '') {
-      mover(2);
+      if (rowscorefriend + rowscorefoe == 0){
+        score +=0;
+      }else if (rowscorefriend + rowscorefoe == 1){
+        score += 2;
+      }else if (rowscorefriend + rowscorefoe == 2){
+        score +=5;
+      }else if((rowscorefriend + rowscorefoe == 3) && (rowscorefriend == 3 || rowscorefoe == 2)){
+        score += 100;
+      }else{
+        score +=1
+      }
     }
-    else if (board[0] == board[3] && board[6] == '') {
-      mover(6);
+
+  //iterate through the diagonals
+  for (var x = 0; x<2; x++){
+    let diagscore = 0;
+    if (board[5] == csymbol){
+      diagscore++;
+    }if (x == 0 && board[0] == csymbol){
+      diagscore++;
+    }if (x == 0 && board[8] == csymbol){
+      diagscore ++;
+    }if (x == 1 && board[2] == csymbol){
+    diagscore++;
+    }if (x == 1 && board[6] == csymbol){
+    diagscore ++;
+    }if (diagscore == 0){
+        score +=1;
+      }else if (diagscore == 1){
+        score += 2;
+      }else if (diagscore == 2){
+        score +=5;
+      }else{
+        score +=1;
+      }
     }
-    else {
-      iterate();
-    }
-  }
-  else if (cMove == 8) {
-    iterate();
-  }
-  else {
-    iterate();
-  }
+
+  return score
 }
-
-// check for a winner, picks the center, attempts to align tokens
-function compMove() {
-  if (winner !== '') {
-    return;
-  }
-  if (moveCounter == 1 && board[0] == token) {
-    mover(8);
-  }
-  else if (moveCounter == 1 && board[2] == token) {
-    mover(6);
-  }
-  else if (moveCounter == 1 && board[6] == token) {
-    mover(2);
-  }
-  else if (moveCounter == 1 && board[8] == token) {
-    mover(0);
-  }
-  else if (board[4] == "") {
-    mover(4);
-  }
-  else if (userMove == 0) {
-    if ((board[1] == token) && (board[2] == "")) {
-      mover(2);
-    }
-    else if ((board[3] == token) && (board[6] == "")) {
-      mover(6);
-    }
-    else if ((board[4] == token) && (board[8] == "")) {
-      mover(8);
-    }
-    else {
-      attack();
-    }
-  }
-  else if (userMove == 1) {
-    if ((board[0] == token) && (board[2] == "")) {
-      mover(2);
-    }
-    else if ((board[0] == "") && (board[2] == token)) {
-      mover(0);
-    }
-    else if ((board[4] == token) && (board[7] == "")) {
-      mover(7);
-    }
-    else {
-      attack();
-    }
-  }
-  else if (userMove == 2) {
-    if ((board[4] == token) && (board[6] == "")) {
-      mover(6)
-    }
-    else if ((board[1] == token) && (board[0] == "")) {
-      mover(0);
-    }
-    else if ((board[0] == token) && (board[1] == "")) {
-      mover(1);
-    }
-    else if ((board[6] == token) && (board[8] == "")) {
-      mover(8);
-    }
-    else if ((board[8] == token) && (board[5] == "")) {
-      mover(5);
-    }
-    else {
-      attack();
-    }
-  }
-  else if (userMove == 3) {
-    if ((board[0] == token) && (board[6] == "")) {
-      mover(6);
-    }
-    else if ((board[6] == token) && (board[0] == "")) {
-      mover(0);
-    }
-    else if ((board[4] == token) && (board[5] == "")) {
-      mover(5);
-    }
-    else {
-      attack();
-    }
-  }
-  else if (userMove == 4) {
-    if ((board[0] == token) && (board[8] == "")) {
-      mover(8)
-    }
-    else if ((board[2] == token) && (board[6] == "")) {
-      mover(6);
-    }
-    else if ((board[6] == token) && (board[2] == "")) {
-      mover(2);
-    }
-    else if ((board[8] == token) && (board[0] == "")) {
-      mover(0);
-    }
-    else if ((board[1] == token) && (board[7] == "")) {
-      mover(7);
-    }
-    else if ((board[7] == token) && (board[1] == "")) {
-      mover(2);
-    }
-    else if ((board[3] == token) && (board[5] == "")) {
-      mover(5);
-    }
-    else if ((board[5] == token) && (board[3] == "")) {
-      mover(3);
-    }
-    else {
-      attack();
-    }
-  }
-  else if (userMove == 5) {
-    if ((board[2] == token) && (board[8] == "")) {
-      mover(8);
-    }
-    else if ((board[8] == token) && (board[2] == "")) {
-      mover(2);
-    }
-    else if ((board[4] == token) && (board[3] == "")) {
-      mover(3);
-    }
-    else {
-      attack();
-    }
-  }
-  else if (userMove == 6) {
-    if ((board[3] == token) && (board[0] == "")) {
-      mover(0);
-    }
-    else if ((board[0] == token) && (board[3] == "")) {
-      mover(3);
-    }
-    else if ((board[7] == token) && (board[8] == "")) {
-      mover(8);
-    }
-    else if ((board[8] == token) && (board[7] == "")) {
-      mover(7);
-    }
-    else if ((board[4] == token) && (board[2] == "")) {
-      mover(2);
-    }
-    else {
-      attack();
-    }
-  }
-  else if (userMove == 7) {
-    if ((board[6] == token) && (board[8] == "")) {
-      mover(8);
-    }
-    else if ((board[8] == token) && (board[6] == "")) {
-      mover(6);
-    }
-    else if ((board[4] == token) && (board[1] == "")) {
-      mover(1);
-    }
-    else {
-      attack();
-    }
-  }
-  else if (userMove == 8) {
-    if ((board[4] == token) && (board[0] == "")) {
-      mover(0);
-    }
-    else if ((board[7] == token) && (board[6] == "")) {
-      mover(6);
-    }
-    else if ((board[5] == token) && (board[2] == "")) {
-      mover(2);
-    }
-    else if ((board[2] == token) && (board[5] == "")) {
-      mover(5);
-    }
-  }
-  else {
-    attack();
-  }
-}
-
-
 
 
