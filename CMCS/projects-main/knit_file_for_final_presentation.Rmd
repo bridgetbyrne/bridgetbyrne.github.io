@@ -1,0 +1,106 @@
+---
+title: "Untitled"
+output: html_document
+  pdf_document: default
+  latex_engine: xelatex
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+load('C:\\Users\\cbops\\OneDrive\\Documents\\New folder\\OneDrive\\Senior Thesis work\\DATA\\lss.RData')
+load('C:\\Users\\cbops\\OneDrive\\Documents\\New folder\\OneDrive\\Senior Thesis work\\DATA\\russia_all.RData')
+library(haven)
+library(tidyverse)
+library(countrycode)
+library(flextable)
+```
+
+
+```{r}
+lss |>
+  filter(bank == '5A', counter == 'RU')|>
+  select(bank, counter, yq, value) |>
+  mutate(value = as.numeric(value)) |>
+  ggplot(aes(x = yq, y = value)) +
+    geom_line(aes(group = bank)) +
+  geom_vline(xintercept = '2022_1', color = 'orangered') +
+  annotate('text', x = '2017_4', y = 20000, label = 'Start of Russia-Ukraine War', color = 'orangered') +
+  scale_x_discrete(guide = guide_axis(check.overlap = TRUE, angle = 90)) +
+  labs(title = 'Nonbank Deposits in all BIS-Reporting Countries held by Russians') +
+  xlab('year and quarter') +
+  ylab('deposits in millions of dollars')+
+  theme_gray()
+
+#ggsave("lss.png", width = 8, height = 6, units = "cm")
+
+````
+
+```{r}
+lss |>
+  filter(bank == 'US', counter == 'RU')|>
+  select(bank, counter, yq, value) |>
+  mutate(value = as.numeric(value)) |>
+  ggplot(aes(x = yq, y = value)) +
+    geom_line(aes(group = bank)) +
+  geom_vline(xintercept = '2022_1', color = 'orangered') +
+  annotate('text', x = '2017_4', y = 20000, label = 'Start of Russia-Ukraine War', color = 'orangered') +
+  scale_x_discrete(guide = guide_axis(check.overlap = TRUE, angle = 90)) +
+  labs(title = 'Deposits in the US held by Russians') +
+  xlab('year and quarter') +
+  ylab('deposits in millions of dollars')+
+  theme_gray()
+```
+
+
+
+```{r}
+lss |>
+  filter(bank == 'GB', counter == 'RU')|>
+  select(bank, counter, yq, value) |>
+  mutate(value = as.numeric(value)) |>
+  ggplot(aes(x = yq, y = value)) +
+    geom_line(aes(group = bank)) +
+  geom_vline(xintercept = '2022_1', color = 'orangered') +
+  annotate('text', x = '2017_4', y = 20000, label = 'Start of Russia-Ukraine War', color = 'orangered') +
+  scale_x_discrete(guide = guide_axis(check.overlap = TRUE, angle = 90)) +
+  labs(title = 'Deposits in the UK held by Russians') +
+  xlab('year and quarter') +
+  ylab('deposits in millions of dollars')+
+  theme_gray()
+
+lss |>
+  filter(bank == 'FR', counter == 'RU')|>
+  select(bank, counter, yq, value) |>
+  mutate(value = as.numeric(value)) |>
+  ggplot(aes(x = yq, y = value)) +
+    geom_line(aes(group = bank)) +
+  geom_vline(xintercept = '2022_1', color = 'orangered') +
+  annotate('text', x = '2017_4', y = 20000, label = 'Start of Russia-Ukraine War', color = 'orangered') +
+  scale_x_discrete(guide = guide_axis(check.overlap = TRUE, angle = 90)) +
+  labs(title = 'Deposits in France held by Russians') +
+  xlab('year and quarter') +
+  ylab('deposits in millions of dollars')+
+  theme_gray()
+```
+
+```{r}
+lss |>
+  filter(counter == "RU", yq == '2022_1') |>
+  ggplot(aes(x =bank, y = spike, fill=factor(ifelse(bank=="US","Highlighted","Normal"))))+
+  geom_bar(stat = 'identity', show.legend = FALSE) +
+  geom_text(aes(label = bank, x = bank, y = spike), stat = 'identity', nudge_y = 0.6) +
+  scale_x_discrete(guide = guide_axis(angle = 90)) + 
+  ggtitle('Spike in Russian Holdings by "bank" country in 2022 q1')
+
+lss |>
+  filter(bank == "5A", yq == '2022_1') |>
+  arrange(desc(value)) |>
+  filter(value >= 20000) |>
+  ggplot(aes(x = counter, y = spike, fill=factor(ifelse(counter=="RU","Highlighted","Normal"))))+
+  geom_bar(stat = 'identity', show.legend = FALSE) +
+  geom_text(aes(label = counter, x = counter, y = spike), stat = 'identity',
+            nudge_y = 0.035) +
+  labs(title ='Spike in Worldwide Deposit Holdings by Countries in 2022 q1', caption = 'note that countries with worldwide deposits below $20bn are omitted')
+
+```

@@ -1,0 +1,47 @@
+
+<html>
+  <head>
+    <script src="tictactoe.js"></script>
+    <link rel="stylesheet" href=tictactoe.css>
+    <title>TicTacToe</title>
+  </head>
+<body>
+  <img src=testudo-example-color.webp alt="testudo" id="testudopic">
+  
+  <div id = "headerdiv">
+    <h2>
+      Welcome to Tic-Tac-Toe!
+    </h2>
+  </div>
+  
+  <div class = "holder">
+    <p>
+      <h3>How to Play:</h3>
+      <ol>
+        <li>You must play as the "x"</li>
+        <li>Make a move and press the "Store Values" button</li>
+        <li>if the computer ever fails to make a move, press "Store Values" again</li>
+      </ol>
+    </p>
+    
+<form name=board>
+
+  <input type=text id="s1" size=3><input type=text id="s2" size=3><input type=text id="s3" size=3><br>
+  <input type=text id="s4" size=3><input type=text id="s5" size=3><input type=text id="s6" size=3><br>
+  <input type=text id="s7" size=3><input type=text id="s8" size=3><input type=text id="s9" size=3><p>
+    <!--Add a button element that runs the function storeValues onClick-->
+</form>
+  
+
+  
+  <button onclick= 'storeValues()'>Store Board</button>
+  <button onclick = 'resetGame()'> Reset Game</button>
+</div>
+  
+<p id = "lastpara">
+  Click <a href="https://www.cs.umd.edu/">Here</a> to learn more about CS @ UMD, <br>
+  where you can learn to code programs like this!
+</p>
+
+</body>
+</html>
