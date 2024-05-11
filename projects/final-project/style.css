@@ -1,10 +1,13 @@
 body, html {
-    margin: 0;
+    margin: 20px;
     padding: 0;
     height: 100%;
     font-family: Arial, sans-serif;
     background-color: #f7e737;
     color: #000000;
+    justify-content: center; 
+    font-family: "Roboto", sans-serif;
+
 }
 
 header {
@@ -14,6 +17,9 @@ header {
     border-bottom: 1px solid #e0e0e0;
     background-color: #db2727;
     color: #fbfdff;
+    border-radius: 10px;
+    font-weight: 700;
+
 
 }
 
@@ -28,9 +34,12 @@ h1 {
 }
 
 article {
-    padding: 20px;
+    padding-top: 20px;
+    padding-bottom: 5px;
     overflow-y: auto; 
     height: calc(100% - 88px); 
+    font-family: "Roboto", sans-serif;
+
 }
 
 p {
@@ -39,9 +48,27 @@ p {
 
 
 .responsive-image {
-    display: flex;
-    justify-content: center; 
-    align-items: center; 
+    
     width: 50vw; 
     height: auto; 
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    padding-top: 8px;
+    padding-bottom: 8px;
+
+}
+
+footer {
+
+    text-align: center;
+}
+
+
+figcaption{
+
+    text-align: center;
+    font-style: italic;
+    font-family: "Roboto", sans-serif;
+
 }
