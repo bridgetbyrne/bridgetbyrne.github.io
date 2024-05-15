@@ -1,0 +1,191 @@
+
+/* baseline style*/
+body {
+    font-size: 20px;
+    background: #BCB88A;
+}
+
+h1 {
+    font-size: 2.5em;
+    font-family: "Neuton", serif;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 1.5em;
+    font-family: "Yrsa", serif;
+}
+
+h3 {
+    font-size: 1em;
+    font-family: "Yrsa", serif;
+}
+
+h4{
+    font-size: .75em;
+    font-family: "Yrsa", serif;
+}
+
+ul {
+    font-size: .75em;
+    font-family: "Lato", sans-serif;
+    
+}
+
+/*navigation bar*/
+nav{
+    text-align: center;
+    font-size: 1.5em;
+    padding: 2em 0;
+    font-family: "Times New Roman", Times, serif;
+}
+
+nav a {
+    color: #3E4551;
+}
+
+
+/*using a pseudo-classes and pseudo-elements*/
+a:hover {
+    color: blue;
+}
+
+h1::selection, h2::selection, h3::selection, h4::selection, ul::selection, p::selection, nav::selection {
+    background: #5B4935; 
+    color: #BCB88A; 
+}
+
+
+/* style for spefic areas of the site */
+.headshot{
+    padding: 20px;
+    background: #5B4935;
+    margin-right: 20px;
+}
+
+#carousel{
+    color:  #fff3e6;
+    font-family: "Times New Roman", Times, serif;
+}
+
+.slide{
+    width: 95%;  
+    height: 400px; 
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.photo{
+    margin-bottom: 50px; 
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 1.25em;
+}
+
+.clips {
+    font-size: 15px;
+    font-family: "Lato", sans-serif;
+  }
+
+.bio{
+
+    font-family: "Lato", sans-serif;
+    padding-top: 30px;
+
+}  
+
+.home{
+
+  display: grid; 
+  grid-template-columns: auto 1fr; 
+  align-items: center; 
+  gap: 20px; 
+
+}
+
+.contact{
+    text-align: center;
+    padding: 5% 2%;
+    margin: 5%;
+    font-weight: 600;
+    font-family: "Times New Roman", Times, serif;
+    color: #8D8D8D;
+    background: #5B4935;
+    line-height: .50;
+    border: 1px solid #000; 
+}
+
+footer{
+    margin: 25px;
+    text-align: center;
+    font-weight: 500;
+}
+
+/* light/dark mode switch */
+.button-switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;  
+    height: 30px; 
+    background-color: #ccc;
+    border-radius: 30px;
+    transition: background-color 0.4s;
+}
+
+.button-slider {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 26px;
+    height: 26px;
+    background-color: white;
+    border-radius: 50%;
+    transition: transform 0.4s;
+}
+
+.button-switch.active {
+    background-color: rgba(0, 0, 0, 0.676);
+}
+
+.button-switch.active .button-slider {
+    transform: translateX(30px); 
+}
+
+
+
+/* suggestion box */
+form {
+    background-color: #5B4935; 
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 300px; 
+    margin: auto; 
+    font-weight: 700;
+    color: #8D8D8D;
+
+
+}
+input[type="text"],
+input[type="email"],
+button {
+    width: 100%; 
+    padding: 10px; 
+    margin-top: 5px; 
+    margin-bottom: 15px; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+}
+
+button {
+    background-color: #0056b3; 
+    font-size: 16px; 
+    border: none;
+    cursor: pointer; 
+}
+
+button:hover {
+    background-color: #004494; 
+}
