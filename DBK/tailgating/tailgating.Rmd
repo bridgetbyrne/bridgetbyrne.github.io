@@ -11,7 +11,9 @@ Try executing this chunk by clicking the *Run* button within the chunk or by pla
 #load libraries 
 library(tidyverse)
 library(dplyr)
+install.packages("ggplot2")
 
+library(ggplot2)
 ```
 
 ```{r}
@@ -84,11 +86,16 @@ mediancost <- allgames |>
 
 
 
+
 ```
 
 
 ```{r}
 #loading Citation data, ignor this 
 citations <- read_csv("2022.citations.csv")
+
+write.csv(lotprofits, "lotprofits.csv", row.names = FALSE)
+write.csv(gameprofits, "gameprofits.csv", row.names = FALSE)
+
 
 ```

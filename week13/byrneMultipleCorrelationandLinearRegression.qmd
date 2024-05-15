@@ -1,0 +1,62 @@
+---
+title: "NFL 2022"
+format: html
+server: shiny
+---
+### NFL data multiple correlation 
+```{r}
+
+library(tidyverse)
+
+install.packages('corrplot')
+library(corrplot)
+
+nfl <- read_csv("https://raw.githubusercontent.com/dwillis/jour405_files/main/nfl_2022.csv")
+
+```
+
+```{r}
+model <- lm(Wins ~ `Yards Gained` + Takeaways + `Points Scored`, data = teams)
+summary(model)
+```
+
+```{r}
+corr_matrix <- cor(selected_vars)
+corrplot(corr_matrix, method = "circle")
+```
+
+
+
+### Montgomery County schools linear regression 
+
+```{r}
+montgomery <- read_csv("https://raw.githubusercontent.com/dwillis/jour405_files/main/montgomery_md.csv")
+
+```
+
+```{r}
+model <- lm(`% Met or Exceeded Math Expectations` ~ `FARMS Pct`, data = schools)
+
+summary(model)
+```
+
+```{r}
+schools$predicted <- predict(model)
+
+# Calculate the residuals
+schools$residual <- schools$`% Met or Exceeded Math Expectations` - schools$predicted
+
+# Sort the data frame by the absolute value of the residuals in descending order
+schools <- schools %>%
+  mutate(abs_residual = abs(residual)) %>%
+  arrange(desc(abs_residual))
+```
+
+```{r}
+schools %>%
+  ggplot(aes(x = `FARMS Pct`, y = `% Met or Exceeded Math Expectations`)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE, color = "red") +
+  labs(x = "FARMS Percentage", y = "% Met or Exceeded Math Expectations", title = "Scatterplot of Math Expectations vs FARMS Percentage")
+```
+```
