@@ -1,0 +1,76 @@
+---
+title: "Weather Girls"
+Author: Bridget Byrne
+output: html_notebook
+---
+
+
+
+```{r}
+options(scipen=999)
+
+install.packages("officer")
+
+#loading needed libraries 
+library(dplyr)
+library(tm)
+library(tidyverse)
+library(tidytext)
+library(janitor)
+library(lubridate)
+library(rvest)
+library(httr)
+```
+
+
+
+```{r}
+# pulling documents
+folder <- "articles"
+ 
+#define keywords
+keywords <- c("weather", "blonde", "legs")
+
+# read a Word document and extract text
+read_doc_text <- function(file_path) {
+  doc <- read_docx(file_path)
+  content <- docx_summary(doc)
+  return(paste(content$text, collapse = " "))
+}
+
+# compiling documents 
+doc_files <- list.files(path = folder, pattern = "\\.docx$", full.names = TRUE)
+
+
+#searching for keywords 
+for (file in doc_files) {
+  doc_text <- read_doc_text(file)
+  doc_name <- basename(file)
+  
+  for (keyword in keywords) {
+    count <- str_count(tolower(doc_text), tolower(keyword))
+    if (count > 0) {
+      results <- rbind(results, data.frame(Document = doc_name, Keyword = keyword, Count = count))
+    }
+  }
+}
+
+#print result/CSV 
+print(results)
+write.csv(results, file = "keyword_occurrences.csv", row.names = FALSE)
+
+```
+
+```{r}
+##notes
+
+# making a dataframe for the results 
+results <- data.frame(
+  Document = character(),
+  Keyword = character(),
+  Count = integer(),
+  stringsAsFactors = FALSE
+)
+
+
+```
