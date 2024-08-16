@@ -10,16 +10,12 @@ output: html_notebook
 options(scipen=999)
 
 install.packages("officer")
+install.packages("stringr")
 
 #loading needed libraries 
-library(dplyr)
-library(tm)
-library(tidyverse)
-library(tidytext)
-library(janitor)
-library(lubridate)
-library(rvest)
-library(httr)
+library(stringr)
+library(officer)
+
 ```
 
 
@@ -27,22 +23,23 @@ library(httr)
 ```{r}
 # pulling documents
 folder <- "articles"
- 
-#define keywords
+
 keywords <- c("weather", "blonde", "legs")
 
-# read a Word document and extract text
+# function to read and extract text from .docx files
 read_doc_text <- function(file_path) {
   doc <- read_docx(file_path)
   content <- docx_summary(doc)
   return(paste(content$text, collapse = " "))
 }
 
-# compiling documents 
+# get the list of .docx files in the folder
 doc_files <- list.files(path = folder, pattern = "\\.docx$", full.names = TRUE)
 
+# initialize an empty data frame to store results
+results <- data.frame(Document = character(), Keyword = character(), Count = integer())
 
-#searching for keywords 
+# search for keywords in each document
 for (file in doc_files) {
   doc_text <- read_doc_text(file)
   doc_name <- basename(file)
@@ -55,22 +52,9 @@ for (file in doc_files) {
   }
 }
 
-#print result/CSV 
+# print and save the results
 print(results)
 write.csv(results, file = "keyword_occurrences.csv", row.names = FALSE)
-
-```
-
-```{r}
-##notes
-
-# making a dataframe for the results 
-results <- data.frame(
-  Document = character(),
-  Keyword = character(),
-  Count = integer(),
-  stringsAsFactors = FALSE
-)
 
 
 ```
